@@ -1,0 +1,15 @@
+{
+    "name": "The Designer",
+    "short_name": "The Designer",
+    "start_url": "/",
+    "background_color": "#6777ef",
+    "description": "Designed for Fashion Designers",
+    "display": "fullscreen",
+    "theme_color": "#6777ef",
+    "icons": [{
+        "src": "assets/logo.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any maskable"
+    }]
+}
