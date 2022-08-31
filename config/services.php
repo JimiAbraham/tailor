@@ -18,7 +18,7 @@ return [
     'google' => [
         'client_id'     => '582414164107-vspvupc6gbnbfloo8014i0fo4ldojqp0.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect'      => 'https://campuschef.com.ng/tailor/auth/google/callback',
+        'redirect'      => 'https://thedesigner.com.ng/auth/google/callback',
     ],
 
     'mailgun' => [

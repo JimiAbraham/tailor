@@ -16,9 +16,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('php artisan optimize:clear')->daily();
+        $schedule->command('php artisan optimize:clear')->hourly();
 
-        $schedule->command('SendBirthdays:cron')->daily();
+         $schedule->command('SendBirthdays:cron')->daily();
     }
 
     /**

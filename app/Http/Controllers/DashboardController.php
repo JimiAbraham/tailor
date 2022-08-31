@@ -623,13 +623,42 @@ public function adminpage()
 
     $Users = User::all();
 
+    // $id = User::all(['id']);
+
     $allClients = client::all()->count();
 
     $Clients = client::all();
 
 
 
-    return view('control.index', compact('allUsers','allClients', 'Users', 'Clients' ))->with('no',1);
+
+    foreach ( $Users as $user){
+           $id =  $user->id;
+    }
+
+    $ClientsCount = client::where('user_id', $id )->count();
+
+
+
+    return view('control.index', compact('allUsers','allClients', 'Users', 'Clients','ClientsCount' ))->with('no',1);
+
+}
+
+
+public function adminpage2()
+
+{
+    $allUsers = User::all()->count();
+
+    $Users = User::all();
+
+    $allClients = client::all()->count();
+
+    $Clients = client::all();
+
+
+
+    return view('control.page2', compact('allUsers','allClients', 'Users', 'Clients' ))->with('no',1);
 
 }
 

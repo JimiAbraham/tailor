@@ -14,6 +14,25 @@ use App\Models\client;
 class ClientsController extends Controller
 {
 
+    public function bulkSmsSender( REQUEST $request){
+        $data =  client::where('user_id', auth()->user()->id)->get();
+
+        foreach( $data as $dt)
+        {
+           // dd($dt->name .' 2 ' .$dt->phone. ' 3 '.$request->message.' 4 '. auth()->user()->name );
+
+           $Sender = auth()->user()->name;
+           $Message = $request->message;
+           $Mobiles = $dt->phone;
+           $recipientName = $dt->name;
+
+
+            $this->bulkSmsHandler( $Sender, $Message, $Mobiles,
+            $recipientName);
+        }
+
+    }
+
     public function clientBirthday()
     {
 
@@ -64,7 +83,7 @@ class ClientsController extends Controller
 
         $Sender = mb_strimwidth($al->user->name, 0, 11);
 
-        $Message  =  " Dear ". $al->name ." ". $al->user->birthday . "<br> From your designer: ". $al->user->name ;
+        $Message  =  " Dear ". $al->name ." ". $al->user->birthday . /n"  From your designer: ". $al->user->name ;
 
          $Mobiles  =  $al->phone;
 
@@ -84,6 +103,9 @@ class ClientsController extends Controller
 
 
     }
+
+
+
 
 public function bulkSmsHandler( $Sender, $Message, $Mobiles, $recipientName, $recipientDob   )
 

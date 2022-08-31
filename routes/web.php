@@ -125,6 +125,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('send-mail', [Controller::class, 'mail']);
 
+Route::post('send-bulk-sms', [ClientsController::class, 'bulkSmsSender'])->name('sendBulkSms');
+
+
 
 Route::get('bday', [ClientsController::class, 'clientBirthday']);
 
@@ -143,8 +146,16 @@ Route::get('clients-info/{id}/{name}', [DashboardController::class, 'NewClientIn
 
 // Route::view('admin','control.index');
 
+ Route::view('no-access','no-access');
+ Route::view('sample','mail');
 
-Route::get('thedesignerr', [DashboardController::class, 'adminpage']);
+
+Route::group([ 'middleware' => ['controlRoom']], function(){
+    Route::get('thedesignerr', [DashboardController::class, 'adminpage']);
+    Route::get('thedesignerrrr', [DashboardController::class, 'adminpage2']);
+} );
+
+
 
 
 

@@ -54,7 +54,7 @@
 
   @foreach ( $portfolio  as $port )
 
-  <div class="col s6 grid-item">
+  <div class="col s6 l6 grid-item">
     <a class="img-wrap round" href=" {{asset('Portfolio/'.$port->media)}}" data-fancybox="images"
       data-caption="The Designer Tailorin Platform">
     <img alt="image" class="z-depth-1" style="width: 100%;" src="{{asset('Portfolio/'.$port->media)}}">

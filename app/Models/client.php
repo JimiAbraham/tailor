@@ -23,4 +23,8 @@ class client extends Model
     {
         return $this->hasMany(photo::class);
     }
+
+    public static function getUserCount($id){
+        return client::where('user_id', $id)->count();
+    }
 }
